@@ -4,7 +4,7 @@ import { createId } from "@paralleldrive/cuid2";
 import { User } from "./User.model.js";
 
 
-const Bits = database.define("bits", {
+const Bits = database.define("Bits", {
     bits_id: {
         type: DataTypes.STRING,
         primaryKey: true,

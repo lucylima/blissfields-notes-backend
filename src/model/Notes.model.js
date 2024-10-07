@@ -4,7 +4,7 @@ import { createId } from "@paralleldrive/cuid2";
 import { User } from "./User.model.js";
 
 
-const Notes = database.define("notes", {
+const Notes = database.define("Notes", {
 
     notes_id: {
         type: DataTypes.STRING,
