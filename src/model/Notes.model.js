@@ -1,36 +1,42 @@
 import { DataTypes } from "sequelize";
 import { database } from "../database/database.js";
 import { createId } from "@paralleldrive/cuid2";
-import { User } from "../model/User.model.js";
+import { User } from "./User.model.js";
 
 
-const Bits = database.define("bits", {
-    id: {
+const Notes = database.define("notes", {
+
+    notes_id: {
         type: DataTypes.STRING,
         primaryKey: true,
         defaultValue: createId()
     },
+
+    title: {
+        type: DataTypes.STRING(400),
+        allowNull: false
+    },
+
     text: {
         type: DataTypes.TEXT,
         allowNull: false
 
     },
+
+    mood: {
+        type: DataTypes.STRING(100),
+        allowNull: false
+    },
+
     user_id: {
         type: DataTypes.STRING,
         allowNull: false,
         references: {
             model: User,
-            key: "id"
-        }
+            key: "user_id"
+        },
+        onDelete: 'CASCADE'
     }
-},
-    {
-        timestamps: false
-    }
+})
 
-)
-
-export { Bits }
-
-
-
+export { Notes }

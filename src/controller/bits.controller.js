@@ -1,32 +1,81 @@
-import { Bits } from "../model/bits.models.js";
+import { Bits } from "../model/Bits.model.js";
 
 const getBitsById = async (req, res) => {
     try {
-        const {id, text, user_id} = req.body;
+        const { bits_id } = req.params;
+
         const bits = await Bits.findOne({
-            where: {id, text, user_id} 
+            where: { bits_id } 
         })
+
         if (!bits) {
             return res.status(404).json({ Error: "bits not found" })
         }
+
         return res.status(200).json({ bits })
     } catch (error) {
         return res.status(400).json({ error })
     }
 }
 
-const registerBits = (req, res) => {
+const registerBits = async (req, res) => {
     try {
-        const text = req.body
-        const bits = Bits.create({
-            text: text
+
+        const { text, user_id } = req.body
+
+        await Bits.sync()
+
+        const bits = await Bits.create({
+            text, user_id
         })
-        return res.status(200).json({bits})
+
+        return res.status(201).json({ bits })
     } catch(error){
-        return res.status(400).json({error})
+        return res.status(400).json({  error })
     }
 }
 
-export { getBitsById, registerBits }
+
+const editBits = async (req, res) => {
+    const { bits_id } = req.params;
+    const { text } = req.body;
+
+    await Bits.update({ text }, {
+        where: {
+            bits_id
+        }
+    })
+
+    return res.status(200).json({ message: 'Bits editado com sucesso' });
+}
+
+const deleteBits = async (req, res) => {
+
+    const { bits_id } = req.params;
+
+    await Bits.destroy({
+        where: {
+            bits_id
+        }
+    })
+
+    return res.status(200).json({ message: 'Bits deletado com sucesso' });
+}
+
+const getAllBits = async (req, res) => {
+
+    try {
+
+        const bits = await Bits.findAll()
+
+        return res.status(200).json({ bits })
+
+    } catch (error) {
+        return res.status(400).json({ messageError: error.message });
+    }
+
+}
+
+export { getBitsById, registerBits, editBits, getAllBits, deleteBits }
 
 
