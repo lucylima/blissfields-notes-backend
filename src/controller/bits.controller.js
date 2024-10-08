@@ -1,11 +1,11 @@
 import { Bits } from "../model/Bits.model.js";
 
-const getBitsById = async (req, res) => {
+const getBitsByUser = async (req, res) => {
     try {
-        const { bits_id } = req.params;
+        const { user_id } = req.params;
 
         const bits = await Bits.findOne({
-            where: { bits_id } 
+            where: { user_id } 
         })
 
         if (!bits) {
@@ -76,6 +76,6 @@ const getAllBits = async (req, res) => {
 
 }
 
-export { getBitsById, registerBits, editBits, getAllBits, deleteBits }
+export { getBitsByUser, registerBits, editBits, getAllBits, deleteBits }
 
 

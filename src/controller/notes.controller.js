@@ -1,11 +1,11 @@
 import { Notes } from "../model/Notes.model.js";
 
-const getNotesById = async (req, res) => {
+const getNotesByUser = async (req, res) => {
     try {
-        const { notes_id } = req.params;
+        const { user_id } = req.params;
 
-        const notes = await Notes.findOne({
-            where: { notes_id } 
+        const notes = await Notes.findAll({
+            where: { user_id } 
         })
 
         if (!notes) {
@@ -76,4 +76,4 @@ const getAllNotes = async (req, res) => {
 
 }
 
-export { getNotesById, registerNotes, editNotes, getAllNotes, deleteNotes }
+export { getNotesByUser, registerNotes, editNotes, getAllNotes, deleteNotes }

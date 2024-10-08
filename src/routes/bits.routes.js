@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { deleteBits, editBits, getAllBits, getBitsById, registerBits } from "../controller/bits.controller.js";
+import { deleteBits, editBits, getAllBits, getBitsByUser, registerBits } from "../controller/bits.controller.js";
 
 const bitsRoutes = Router()
 
-bitsRoutes.get("/bits/:bits_id", getBitsById)
+bitsRoutes.get("/bits/:bits_id", getBitsByUser)
 bitsRoutes.get("/bits", getAllBits)
 bitsRoutes.post("/bits", registerBits)
 bitsRoutes.put("/bits/:bits_id", editBits)
