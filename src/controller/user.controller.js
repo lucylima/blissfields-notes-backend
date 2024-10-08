@@ -22,12 +22,12 @@ const getUserById = async (req, res) => {
 
 const registerUser = async (req, res) => {
     try {
-        const { username ,name, email, password } = req.body;
+        const { username , email, password } = req.body;
 
         await User.sync()
 
         const newUser = await User.create({
-           username, name, email, password
+           username, email, password
         })
 
         return res.status(201).json({ newUser })
@@ -53,9 +53,9 @@ const deleteUser = async (req, res) => {
 
 const editUser = async (req, res) => {
     const { user_id } = req.params;
-    const { username, name, password, email } = req.body;
+    const { username, password, email } = req.body;
 
-    await User.update({username, name, password, email}, {
+    await User.update({username, password, email}, {
         where: {
             user_id
         }

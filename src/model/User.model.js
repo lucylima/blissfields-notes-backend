@@ -14,14 +14,12 @@ const User = database.define("User", {
         type: DataTypes.STRING(100),
         allowNull: false
     },
-    name: {
-        type: DataTypes.STRING(255),
-        allowNull: false
-    },
+
     email: {
         type: DataTypes.STRING(255),
         allowNull: false
     },
+    
     password: {
         type: DataTypes.STRING(100),
         allowNull: false
