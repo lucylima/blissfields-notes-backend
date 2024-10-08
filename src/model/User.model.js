@@ -1,13 +1,12 @@
 import { DataTypes } from "sequelize";
 import { database } from "../database/database.js";
-import { createId } from "@paralleldrive/cuid2";
 
 const User = database.define("User", {
     
     user_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.UUID,
         primaryKey: true,
-        defaultValue: createId()
+        defaultValue: DataTypes.UUIDV4
     },
 
     username: {
@@ -19,7 +18,7 @@ const User = database.define("User", {
         type: DataTypes.STRING(255),
         allowNull: false
     },
-    
+
     password: {
         type: DataTypes.STRING(100),
         allowNull: false

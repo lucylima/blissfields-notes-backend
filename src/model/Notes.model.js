@@ -1,15 +1,14 @@
 import { DataTypes } from "sequelize";
 import { database } from "../database/database.js";
-import { createId } from "@paralleldrive/cuid2";
 import { User } from "./User.model.js";
 
 
 const Notes = database.define("Notes", {
 
     notes_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.UUID,
         primaryKey: true,
-        defaultValue: createId()
+        defaultValue: DataTypes.UUIDV4
     },
 
     title: {
@@ -29,7 +28,7 @@ const Notes = database.define("Notes", {
     },
 
     user_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: User,

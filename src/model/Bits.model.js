@@ -1,14 +1,13 @@
 import { DataTypes } from "sequelize";
 import { database } from "../database/database.js";
-import { createId } from "@paralleldrive/cuid2";
 import { User } from "./User.model.js";
 
 
 const Bits = database.define("Bits", {
     bits_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.UUID,
         primaryKey: true,
-        defaultValue: createId()
+        defaultValue: DataTypes.UUIDV4
     },
     text: {
         type: DataTypes.TEXT,
@@ -16,7 +15,7 @@ const Bits = database.define("Bits", {
 
     },
     user_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.UUID,
         allowNull: false,
         references: {
             model: User,
