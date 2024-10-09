@@ -14,7 +14,7 @@ const getNotesByUser = async (req, res) => {
 
         return res.status(200).json({ notes })
     } catch (error) {
-        return res.status(400).json({ error: error.essage })
+        return res.status(400).json({ messageError: error.message })
     }
 }
 
@@ -31,7 +31,7 @@ const registerNotes = async (req, res) => {
 
         return res.status(201).json({ notes })
     } catch(error){
-        return res.status(400).json({  error })
+        return res.status(400).json({  messageError: error.message })
     }
 }
 
