@@ -4,7 +4,7 @@ const getBitsByUser = async (req, res) => {
     try {
         const { user_id } = req.params;
 
-        const bits = await Bits.findOne({
+        const bits = await Bits.findAll({
             where: { user_id } 
         })
 
