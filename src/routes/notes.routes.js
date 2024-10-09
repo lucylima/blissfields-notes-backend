@@ -3,7 +3,7 @@ import { deleteNotes, editNotes, getAllNotes, getNotesByUser, registerNotes } fr
 
 const notesRoutes = Router()
 
-notesRoutes.get("/notes/:notes_id", getNotesByUser)
+notesRoutes.get("/notes/:user_id", getNotesByUser)
 notesRoutes.get("/notes", getAllNotes)
 notesRoutes.post("/notes", registerNotes)
 notesRoutes.put("/notes/:notes_id", editNotes)

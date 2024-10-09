@@ -3,7 +3,7 @@ import { deleteBits, editBits, getAllBits, getBitsByUser, registerBits } from ".
 
 const bitsRoutes = Router()
 
-bitsRoutes.get("/bits/:bits_id", getBitsByUser)
+bitsRoutes.get("/bits/:user_id", getBitsByUser)
 bitsRoutes.get("/bits", getAllBits)
 bitsRoutes.post("/bits", registerBits)
 bitsRoutes.put("/bits/:bits_id", editBits)
