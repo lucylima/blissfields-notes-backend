@@ -11,24 +11,24 @@ Curtidas e comentários nos tweets são desabilitados para manter o foco no bem-
 
 ### 🔧 Instalação
 
-* Clone o repositório:
-git clone https://github.com/lucylima/pda-projeto-final-m5-backend.git
+- Clone o repositório:
+- git clone https://github.com/lucylima/pda-projeto-final-m5-backend.git
 
-* Instale as dependências:
-npm install
+- Instale as dependências:
+- npm install
 
-* Configure o arquivo .env 
+- Configure o arquivo .env 
 
-* Execute o servidor:
-npm run dev
+- Execute o servidor:
+- npm run dev
 
 
 ### 🔩 Funcionalidades
 
-* CRUD de usuários
-* CRUD de "moods" diários
-* CRUD de "tweets"
-* Autenticação de usuários
+- CRUD de usuários
+- CRUD de "moods" diários
+- CRUD de "tweets"
+- Autenticação de usuários
 
 
 
@@ -36,27 +36,27 @@ npm run dev
 
 ### Endpoints
 
-* Usuários
-POST /usuarios: Cria um novo usuário.
-GET /usuarios: Lista todos os usuários.
-PUT /usuarios/:id: Atualiza um usuário.
-DELETE /usuarios/:id: Remove um usuário.
+  ### Usuários
+- POST /usuarios: Cria um novo usuário.
+- GET /usuarios: Lista todos os usuários.
+- PUT /usuarios/:id: Atualiza um usuário.
+- DELETE /usuarios/:id: Remove um usuário.
 
-* Moods
-POST /moods: Registra o mood do dia.
-GET /moods: Lista os moods.
+  ###Moods
+- POST /moods: Registra o mood do dia.
+- GET /moods: Lista os moods.
 
-* Tweets
-POST /tweets: Cria um tweet.
-GET /tweets: Lista todos os tweets.
+  ###Tweets
+- POST /tweets: Cria um tweet.
+- GET /tweets: Lista todos os tweets.
 
 
 ## 🛠️ Construído com:
 
-* Node.js
-* Express
-* MongoDB
-* JWT para autenticação
+- Node.js
+- Express
+- MongoDB
+- JWT para autenticação
 
 
 ## 📄 Licença
