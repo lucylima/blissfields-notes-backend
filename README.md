@@ -32,8 +32,6 @@ Curtidas e comentários nos tweets são desabilitados para manter o foco no bem-
 
 
 
-### ⌨️ E testes de estilo de codificação
-
 ### Endpoints
 
   ### Usuários
@@ -42,11 +40,11 @@ Curtidas e comentários nos tweets são desabilitados para manter o foco no bem-
 - PUT /usuarios/:id: Atualiza um usuário.
 - DELETE /usuarios/:id: Remove um usuário.
 
-  ###Moods
+### Moods
 - POST /moods: Registra o mood do dia.
 - GET /moods: Lista os moods.
 
-  ###Tweets
+### Tweets
 - POST /tweets: Cria um tweet.
 - GET /tweets: Lista todos os tweets.
 
