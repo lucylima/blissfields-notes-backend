@@ -1,9 +1,13 @@
 import { User } from "../model/User.model.js";
 
-const getUserById = async (req, res) => {
+const loginUser = async (req, res) => {
     try {
 
         const { email, password } = req.body;
+
+        if (!email || !password) {
+            return res.status(400).json({ errorMessage: "Email e senha são obrigatórios!" });
+        }
 
         const user = await User.findOne({
             where: { email, password }
@@ -12,6 +16,7 @@ const getUserById = async (req, res) => {
         if (!user) {
             return res.status(404).json({ Error: "user not found" })
         }
+
         return res.status(200).json({ user })
 
     } catch (error) {
@@ -80,4 +85,4 @@ const getAllUsers = async (req, res) => {
 
 }
 
-export { getUserById, registerUser, deleteUser, editUser, getAllUsers }
+export { loginUser, registerUser, deleteUser, editUser, getAllUsers }
