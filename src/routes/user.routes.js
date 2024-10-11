@@ -3,7 +3,7 @@ import { deleteUser, editUser, getAllUsers, loginUser, registerUser } from "../c
 
 const userRouter = Router()
 
-userRouter.post("/user", loginUser)
+userRouter.post("/login", loginUser)
 userRouter.get("/alluser", getAllUsers)
 userRouter.post("/user", registerUser)
 userRouter.delete("/user/:user_id", deleteUser)
