@@ -1,11 +1,12 @@
 import { Bits } from "../model/Bits.model.js";
+import { User } from "../model/User.model.js";
 
 const getBitsByUser = async (req, res) => {
     try {
         const { user_id } = req.params;
 
         const bits = await Bits.findAll({
-            where: { user_id } 
+            where: { user_id }
         })
 
         if (!bits) {
@@ -30,7 +31,7 @@ const registerBits = async (req, res) => {
         })
 
         return res.status(201).json({ bits })
-    } catch(error){
+    } catch (error) {
         return res.status(400).json({ messageError: error.message })
     }
 }
@@ -66,7 +67,7 @@ const getAllBits = async (req, res) => {
 
     try {
 
-        const bits = await Bits.findAll()
+        const bits = await Bits.findAll({ include: User })
 
         return res.status(200).json({ bits })
 
