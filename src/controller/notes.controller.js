@@ -5,7 +5,7 @@ const getNotesByUser = async (req, res) => {
         const { user_id } = req.params;
 
         const notes = await Notes.findAll({
-            where: { user_id } 
+            where: { user_id }
         })
 
         if (!notes) {
@@ -25,13 +25,15 @@ const registerNotes = async (req, res) => {
 
         await Notes.sync()
 
-        const notes = await Notes.create({
+        const newNote = await Notes.create({
             title, text, mood, user_id
         })
 
-        return res.status(201).json({ notes })
-    } catch(error){
-        return res.status(400).json({  messageError: error.message })
+        const note = await Notes.findByPk(newNote.notes_id)
+
+        return res.status(201).json({ note })
+    } catch (error) {
+        return res.status(400).json({ messageError: error.message })
     }
 }
 
