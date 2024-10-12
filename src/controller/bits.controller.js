@@ -26,8 +26,17 @@ const registerBits = async (req, res) => {
 
         await Bits.sync()
 
-        const bits = await Bits.create({
+        const newBit = await Bits.create({
             text, user_id
+        })
+
+        const bits = await Bits.findByPk(newBit.bits_id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
         })
 
         return res.status(201).json({ bits })
