@@ -67,7 +67,14 @@ const getAllBits = async (req, res) => {
 
     try {
 
-        const bits = await Bits.findAll({ include: User })
+        const bits = await Bits.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
 
         return res.status(200).json({ bits })
 
