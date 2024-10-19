@@ -2,7 +2,6 @@ import { DataTypes } from "sequelize";
 import { database } from "../database/database.js";
 
 const User = database.define("User", {
-    
     user_id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -11,12 +10,14 @@ const User = database.define("User", {
 
     username: {
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: false,
+        unique: true,
     },
 
     email: {
         type: DataTypes.STRING(255),
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
 
     password: {
